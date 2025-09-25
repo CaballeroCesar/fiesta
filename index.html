@@ -6,6 +6,7 @@
   <title>La Fiesta de Elgin</title>
   <link rel="icon" type="image/png" href="https://elginil.gov/ImageRepository/Document?documentId=85646" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
   <style>
   
     html {
@@ -18,6 +19,10 @@
       color: #2d3748;
       margin: 0;
       padding: 0;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Ranchers', cursive;
     }
     
     #vimeohero {
@@ -39,11 +44,45 @@
         width: 177.77777778vh;
     }
     
+    #vimeohero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5); /* black with 50% opacity */
+      pointer-events: none; /* ensures clicks still reach the video if needed */
+      z-index: 2;
+    }
+
+    #vimeohero iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      z-index: 1;
+    }
+    
     @media (max-width: 768px) {
       #vimeohero {
         height: 400px; 
       }
   	}	
+    
+    .hero-content {
+      position: relative;
+      z-index: 3; /* above overlay and video */
+      color: white;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      width: 90%; /* keep text from touching edges on mobile */
+    }
  
     /* Navbar */
     .navbar {
@@ -181,6 +220,9 @@
   <!-- Hero Section -->
   <div id="vimeohero">
     <iframe src="https://player.vimeo.com/video/1113042426?background=1&autoplay=1&loop=1&muted=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <div class="hero-content">
+        <h1>COUNTDOWN TO LA FIESTA!</h1>
+    </div>
   </div>
 
   <!-- Footer -->
