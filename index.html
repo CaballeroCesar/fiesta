@@ -81,7 +81,26 @@
       left: 50%;
       transform: translate(-50%, -50%);
       position: absolute;
-      width: 90%; /* keep text from touching edges on mobile */
+      width: 90%;
+    }
+    
+    #countdown {
+      display:flex; justify-content: center; align-items: center; gap:10px; font-size:20px; text-align:center; 
+    }
+
+    .countdown-container {
+      background: white; padding:10px 10px; border-radius:10px; box-shadow:2px 2px 6px black; color: black; text-shadow: none;
+    }
+
+    @media (max-width: 768px) {
+      #countdown {
+        font-size: 16px;     
+        flex-wrap: wrap;     
+      }
+
+      .countdown-container {
+        padding: 8px 6px;
+      }
     }
  
     /* Navbar */
@@ -221,7 +240,10 @@
   <div id="vimeohero">
     <iframe src="https://player.vimeo.com/video/1113042426?background=1&autoplay=1&loop=1&muted=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     <div class="hero-content">
-        <h1>COUNTDOWN TO LA FIESTA!</h1>
+      <div class="banner">
+        <h1 style="color: white;">COUNTDOWN TO LA FIESTA!</h1>
+        <div id="countdown"></div>
+      </div>
     </div>
   </div>
 
@@ -273,6 +295,36 @@
       window.addEventListener("resize", handleScrollAnimation);
       handleScrollAnimation(); // initial check
     });
+    
+    //COUNTDOWN
+    // Set the date of the event (example: Sept 13, 2025 at 9AM)
+    const eventDate = new Date("Sep 13, 2026 9:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "See You Next Year!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `
+      <div class="countdown-container"><div>${days}</div><div style="font-size:.5em;">DAYS</div></div>
+      <div class="countdown-container"><div>${hours}</div><div style="font-size:.5em;">HOURS</div></div>
+      <div class="countdown-container"><div>${minutes}</div><div style="font-size:.5em;">MINUTES</div></div>
+      <div class="countdown-container"><div>${seconds}</div><div style="font-size:.5em;">SECONDS</div></div>
+      `;
+    }
+
+    // Update every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Initial call
   </script>
  
 </body>
