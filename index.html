@@ -25,6 +25,14 @@
       font-family: 'Ranchers', cursive;
     }
     
+    a {
+      color: rgb(201, 58, 150);
+    }
+    
+    section {
+      padding: 15px;
+    }
+    
     #vimeohero {
         background: black;
         height: 600px;
@@ -147,7 +155,11 @@
    
     .navbar-nav .nav-link:hover::after {
       width: 100%;
-    }  
+    } 
+    
+    .intro {
+		background-color: lightgray;
+	}
 
     .primary-btn {
       background-color: #CE2238;
@@ -206,12 +218,12 @@
 <body>
 
   <!-- Navbar using bootstrap -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="">
         <img src="https://elginil.gov/ImageRepository/Document?documentId=85646" alt="Fiesta de Elgin Logo" class="navbar-logo">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -237,7 +249,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <div id="vimeohero">
+  <section id="vimeohero">
     <iframe src="https://player.vimeo.com/video/1113042426?background=1&autoplay=1&loop=1&muted=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     <div class="hero-content">
       <div class="banner">
@@ -245,7 +257,44 @@
         <div id="countdown"></div>
       </div>
     </div>
-  </div>
+  </section>
+  
+  <section class="intro">
+    <div class="container">
+      <div class="row align-items-center text-center">
+        <!-- Left image -->
+        <div class="col-3">
+          <img src="https://elginil.gov/ImageRepository/Document?documentID=86145" alt="Left Image" class="img-fluid rounded">
+        </div>
+
+        <!-- Middle text -->
+        <div class="col-6">
+          <p>
+            La Fiesta de Elgin is back for its third year! Join us for a vibrant
+            celebration of Mexican Independence Day on Saturday, September 13, 2025,
+            in the heart of Downtown Elgin.
+          </p>
+          <p>
+            Get ready for a day full of music, food, culture, and community pride!
+            The festivities kick off Saturday morning with a lively morning parade.
+            The excitement continues at Festival Park with an evening celebration
+            you will not want to miss.
+          </p>
+          <p>
+            This beloved event is made possible by our amazing community partners:
+            <a href="https://centrodeinformacion.org/" target="_blank">Centro de Información</a>, <a href="https://www.facebook.com/epicgrouphome" target="_blank">Epic Real Estate Group</a>, <a href="https://www.elginstatebank.com/" target="_blank">Elgin State Bank</a>, and
+            <a href="https://friendsofmasons.org/" target="_blank">Friends of Masons</a>.
+          </p>
+          <p><strong>Mark your calendars and come celebrate with us!</strong></p>
+        </div>
+
+        <!-- Right image -->
+        <div class="col-3">
+          <img src="https://elginil.gov/ImageRepository/Document?documentID=86144" alt="Right Image" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
