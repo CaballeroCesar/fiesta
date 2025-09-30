@@ -23,6 +23,7 @@
     
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Ranchers', cursive;
+      text-align: center;
     }
     
     a {
@@ -284,23 +285,35 @@
       transform: translateY(0);
     }
     .button-1 {
-		background: #CF0921; color: white; font-size: 1.2em; padding: 15px 60px; border: none; display: block; clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 10% 100%); box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); margin: 0; font-weight: bold; cursor: default; width: 400px; margin: auto;
+		background: #CF0921; color: white; font-size: 1.2em; padding: 15px 60px; border: none; display: block; clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 10% 100%); box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); margin: 0; font-weight: bold; width: 400px; margin: auto;
 	}
 	
 	.button-2 {
-		background: #006845; color: white; font-size: 1.2em; padding: 15px 60px; border: none; display: block; clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%); box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); margin: 0; font-weight: bold; cursor: default; width: 400px; margin: auto;
+		background: #006845; color: white; font-size: 1.2em; padding: 15px 60px; border: none; display: block; clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%); box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); margin: 0; font-weight: bold; width: 350px; margin: auto;
 	}
 	
 	.button-3 {
-		background: #7B3F00 ; color: white; font-size: 1.2em; padding: 15px 100px; border: none; display: block; clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 5% 100%); box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); margin: 0; font-weight: bold; cursor: default; width: 400px; margin: auto;
+		background: #7B3F00 ; color: white; font-size: 1.2em; padding: 15px 100px; border: none; display: block; clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 5% 100%); box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5); margin: 0; font-weight: bold; width: 400px; margin: auto;
 	}
+    
+    @media (max-width: 768px) {
+      .button-1 {
+        font-size: 0.8em; padding: 7px; width: 200px;
+      }
+      .button-2 {
+        font-size: 0.8em; padding: 7px; width: 180px;
+      }
+      .button-3 {
+        font-size: 0.8em; padding: 7px; width: 200px;
+      }
+  	}
   </style>
 </head>
 
 <body>
 
   <!-- Navbar using bootstrap -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="">
         <img src="https://elginil.gov/ImageRepository/Document?documentId=85646" alt="Fiesta de Elgin Logo" class="navbar-logo">
@@ -334,14 +347,14 @@
   <section id="vimeohero">
     <iframe src="https://player.vimeo.com/video/1113042426?background=1&autoplay=1&loop=1&muted=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     <div class="hero-content">
-      <div class="banner">
-        <h1 style="color: white;">COUNTDOWN TO LA FIESTA!</h1>
-        <div id="countdown"></div>
-        <div style="text-align: center;">
-		<div class="button-1">DOWNTOWN ELGIN, IL</div>
-		<div class="button-2">SEPTEMBER 13, 2025</div>
-		<div class="button-3">FREE EVENT!</div>
-	</div>
+        <div class="banner">
+          <h1 style="color: white;">COUNTDOWN TO LA FIESTA!</h1>
+          <div id="countdown"></div>
+          <div style="text-align: center;">
+          <div class="button-1">DOWNTOWN ELGIN, IL</div>
+          <div class="button-2">SEPTEMBER 13, 2025</div>
+          <div class="button-3">FREE EVENT!</div>
+        </div>
       </div>
     </div>
   </section>
@@ -388,6 +401,11 @@
       <img src="https://elginil.gov/ImageRepository/Document?documentID=85973" alt="Artists"/>
       <img src="https://elginil.gov/ImageRepository/Document?documentId=85939" alt="Schedule"/>
     </div>
+  </section>
+  
+  <section class="section1">
+  	<h1>PLAN YOUR DAY</h1>
+    <img src="https://elginil.gov/ImageRepository/Document?documentID=86157" alt="Papel Picado" style="width: 100%; "/>
   </section>
 
   <!-- Footer -->
