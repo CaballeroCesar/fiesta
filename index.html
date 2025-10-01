@@ -179,7 +179,6 @@
         align-items: center;
       }
 
-      /* Put left and right images side by side */
       .intro-left,
       .intro-right {
         flex: 1 1 50%;
@@ -195,14 +194,12 @@
         display: block;
       }
 
-      /* Wrap the two images together */
       .intro-images {
         display: flex;
         width: 100%;
         justify-content: center;
       }
 
-      /* Overlay text on top of images */
       .intro-center {
         position: absolute;
         top: 50%;
@@ -211,7 +208,7 @@
         z-index: 2;
         text-align: center;
         color: white;
-        background: rgba(0,0,0,0.6); /* overlay background */
+        background: rgba(0,0,0,0.6); 
         padding: 20px;
         border-radius: 10px;
         width: 80%;
@@ -282,20 +279,21 @@
       text-align: center;
     }
 
-    .hero-button-red {
-      background: #CF0921;
+    .hero-button-green {
+      background: #006845;
       width: 400px;
       clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 10% 100%);
     }
 
-    .hero-button-green {
-      background: #006845;
+    .hero-button-white {
+      background: white;
+      color: #7B3F00;
       width: 350px;
       clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%);
     }
 
-    .hero-button-brown {
-      background: #7B3F00;
+    .hero-button-red {
+      background: #CF0921;
       width: 400px;
       clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 5% 100%);
     }
@@ -354,14 +352,12 @@
     <div class="hero-content">
       <h1 class="scroll-fade">COUNTDOWN TO LA FIESTA!</h1>
       <div id="countdown" class="scroll-fade"></div>
-      <div class="hero-button hero-button-red scroll-fade">DOWNTOWN ELGIN, IL</div>
-      <div class="hero-button hero-button-green scroll-fade">SEPTEMBER 13, 2025</div>
-      <div class="hero-button hero-button-brown scroll-fade">FREE EVENT!</div>
+      <div class="hero-button hero-button-green scroll-fade">DOWNTOWN ELGIN, IL</div>
+      <div class="hero-button hero-button-white scroll-fade">SEPTEMBER 13, 2025</div>
+      <div class="hero-button hero-button-red scroll-fade">FREE EVENT!</div>
     </div>
   </section>
   
-  
-
   <!-- Intro Section -->
   <section class="section section-dark">
     <div class="intro-row scroll-fade">
