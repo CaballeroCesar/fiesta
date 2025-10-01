@@ -174,12 +174,17 @@
     @media (max-width: 768px) {
       .intro-row {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
+      /* Put left and right images side by side */
       .intro-left,
       .intro-right {
-        position: sticky;
-        top: 0;
+        flex: 1 1 50%;
+        max-width: 50%;
+        position: relative;
         z-index: 1;
       }
 
@@ -190,12 +195,26 @@
         display: block;
       }
 
+      /* Wrap the two images together */
+      .intro-images {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* Overlay text on top of images */
       .intro-center {
-        margin: 20px 0;
-        position: relative;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 2;
-        background: #1B1212; 
-        padding: 15px;
+        text-align: center;
+        color: white;
+        background: rgba(0,0,0,0.6); /* overlay background */
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
       }
     }
     
@@ -340,6 +359,8 @@
       <div class="hero-button hero-button-brown scroll-fade">FREE EVENT!</div>
     </div>
   </section>
+  
+  
 
   <!-- Intro Section -->
   <section class="section section-dark">
