@@ -253,10 +253,29 @@
       box-sizing: border-box;
       padding: 20px;
     }
+    
+    .flex-section2 {
+      flex: 1 1 50%;   
+      box-sizing: border-box;
+      padding: 20px;
+    }
 
     @media (max-width: 768px) {
       .flex-section {
         flex: 1 1 100%;  
+      }
+      
+      .flex-section2 {
+        flex: 1 1 100%;  
+      }
+      
+      /* Reverse the order on mobile */
+      .flex-section2:first-child {
+        order: 2;  /* first section moves below */
+      }
+
+      .flex-section2:last-child {
+        order: 1;  /* second section moves on top */
       }
     }
 
@@ -405,9 +424,8 @@
       <img src="https://elginil.gov/ImageRepository/Document?documentID=86157" style="margin-bottom: 20px;" class="img-full" alt="Papel Picado">
     </div>
 
-    <div class="flex-container scroll-fade">
-      <!-- Left: Text -->
-      <div class="flex-section">
+    <div class="flex-container">
+      <div class="flex-section scroll-fade">
         <p><strong>La Fiesta de Elgin Parade | Saturday, September 13 | 9:00am</strong></p>
         <p><strong>📍Downtown Elgin</strong></p>
         <p>La Fiesta de Elgin Parade car staging begins at 7 a.m. at 901 Center St
@@ -421,14 +439,50 @@
           <a href="http://cityofelgin.org/parking" target="_blank">here</a>.
         </p>
       </div>
-
-      <!-- Right: Image -->
-      <div class="flex-section" >
+      <div class="flex-section scroll-fade" >
         <a href="https://elginil.gov/ImageRepository/Document?documentId=85940" target="_blank">
           <img src="https://elginil.gov/ImageRepository/Document?documentId=85940" class="img-full img-rounded img-centered" alt="Car Parade">
         </a>
       </div>
     </div>
+    
+    <div class="flex-container">
+      <div class="flex-section2 scroll-fade" >
+        <a href="https://elginil.gov/ImageRepository/Document?documentId=85951" target="_blank">
+          <img src="https://elginil.gov/ImageRepository/Document?documentId=85951" class="img-full img-rounded img-centered" alt="Mercado">
+        </a>
+      </div>
+      <div class="flex-section2 scroll-fade">
+        <p><strong>El Mercado | Saturday, September 13 | 10:00am - 6:00pm</strong></p>
+
+		<p><strong>📍 Riverside Drive</strong></p>
+
+		<p>We are turning up the energy with a special La Fiesta de Elgin Mercado. Stroll through a vibrant market featuring Latino-owned businesses, live music, a car show and family-friendly activities for all ages. From delicious eats to one-of-kind retail finds, there is something for everyone.</p>
+
+		<p>Want to be part of the fun as a food or retail vendor? Head over to our <a href="https://elginil.gov/2608/Vendors" target="_blank"><strong>Vendor Page</strong></a> to apply!</p>
+
+		<p><em>A full list of entertainment and participating vendors will be shared soon!</em></p>
+      </div>
+    </div>
+    
+    <div class="flex-container">
+      <div class="flex-section scroll-fade">
+        <p><strong>La Fiesta de Elgin Celebration | Saturday, September 13 | 5:00pm- 10:00pm</strong></p>
+
+        <p><strong>📍Festival Park | 132 S. Grove Elgin, IL 60120</strong></p>
+
+        <p>Get ready for a vibrant night of culture, music art, and fun as Mexico comes to Festival Park! A stunning, large-scale Angel of Independence will welcome guests at the center sidewalk, setting the stage for an unforgettable evening. Additional vibrant art installations will make their return celebrating Mexican heritage. There will be plenty of fun and interaction for kids, including our <em>Illuminate Elgin</em> interactive light board and our pi&ntilde;ata smash! Savor authentic Mexican food, sip on ice-cold micheladas, or cool down with a refreshing paleta. Plenty of local and popular food vendors will be joining us in the celebration.</p>
+
+        <p>Dance the night away with live performances by <a href="https://www.facebook.com/LosSebastianes/" target="_blank"><strong>Banda Los Sebastianes</strong></a>, <a href="https://www.facebook.com/estiloalnorte" target="_blank"><strong>Estilo Al Norte</strong></a>, La Sonora Dinamita, and <a href="https://www.facebook.com/djeddyp2" target="_blank"><strong>DJ Eddy P</strong></a> will be emceeing and spinning tunes between sets.</p>
+
+      </div>
+      <div class="flex-section scroll-fade" >
+        <a href="https://elginil.gov/ImageRepository/Document?documentId=85943" target="_blank">
+          <img src="https://elginil.gov/ImageRepository/Document?documentId=85943" class="img-full img-rounded img-centered" alt="Celebration">
+        </a>
+      </div>
+    </div>
+    
   </section>
 
 
