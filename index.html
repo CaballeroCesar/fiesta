@@ -1,752 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La Fiesta de Elgin</title>
-  <link rel="icon" type="image/png" href="https://elginil.gov/ImageRepository/Document?documentId=85646" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Fiesta de Elgin</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://elginil.gov/ImageRepository/Document?documentId=85646"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/styles.css" />
+  </head>
 
-  <style>
-    html {
-      scroll-padding-top: 60px;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: sans-serif;
-      color: #2d3748;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Ranchers', cursive;
-      text-align: center;
-    }
-
-    a { color: rgb(201, 58, 150); }
-
-    section { padding: 15px; }
-
-    /* ---------------- HERO ---------------- */
-    #vimeohero { 
-      background: black; 
-      height: 600px; 
-      overflow: hidden; 
-      position: relative; 
-    } 
-    
-    iframe { 
-      box-sizing: border-box; 
-      height: 56.25vw; 
-      left: 50%; 
-      min-height: 100%; 
-      min-width: 100%; 
-      transform: translate(-50%, -50%); 
-      position: absolute; 
-      top: 50%;
-      width: 177.77777778vh; 
-    } 
-    
-    #vimeohero::after { 
-      content: ""; 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      height: 100%; 
-      background: rgba(0,0,0,0.5); 
-      pointer-events: none; 
-      z-index: 2; 
-    } 
-    
-    #vimeohero iframe { 
-      position: absolute; 
-      top: 50%; 
-      left: 50%; 
-      transform: translate(-50%, -50%); 
-      min-width: 100%; 
-      min-height: 100%; 
-      z-index: 1; 
-    } 
-    
-    @media (max-width: 768px) { 
-      #vimeohero { 
-        height: 400px; 
-      } 
-    } 
-    
-    .hero-content { 
-      position: relative; 
-      z-index: 3; 
-      color: white; 
-      text-align: center; 
-      top: 50%; 
-      left: 50%; 
-      transform: translate(-50%, -50%); 
-      position: absolute; 
-      width: 90%; 
-    }
-
-    /* ---------------- COUNTDOWN ---------------- */
-    #countdown {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .countdown-container {
-      background: white;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 6px black;
-      color: black;
-    }
-
-    @media (max-width: 768px) {
-      #countdown { font-size: 16px; flex-wrap: wrap; }
-      .countdown-container { padding: 8px 6px; }
-    }
-
-    /* ---------------- NAVBAR ---------------- */
-    .navbar {
-      background: black;
-      border-bottom: 4px solid #0E6845;
-      opacity: 90%;
-    }
-
-    .navbar-logo {
-      max-height: 75px;
-      width: auto;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .navbar-logo:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .navbar-nav .nav-link {
-      position: relative;
-      color: white;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-nav .nav-link::after {
-      content: "";
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #0E6845;
-      transition: width 0.3s ease;
-    }
-
-    .navbar-nav .nav-link:hover { color: #0E6845; }
-    .navbar-nav .nav-link:hover::after { width: 100%; }
-    
-    /* ---------------- INTRO SECTION ---------------- */
-    .intro-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0px;
-    }
-
-    .intro-left, .intro-right {
-      flex: 0 0 15%;
-    }
-
-    .intro-center {
-      flex: 1 1 80%;
-      text-align: left;
-    }
-
-    @media (max-width: 768px) {
-      .intro-row {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .intro-left,
-      .intro-right {
-        flex: 1 1 50%;
-        max-width: 50%;
-        position: relative;
-        z-index: 1;
-      }
-
-      .intro-left img,
-      .intro-right img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      .intro-images {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-      }
-
-      .intro-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        text-align: center;
-        color: white;
-        background: rgba(0,0,0,0.6); 
-        padding: 20px;
-        border-radius: 10px;
-        width: 80%;
-      }
-    }
-    
-    /* ---------------- FLYER SECTION ---------------- */
-    .flyer-link {
-      display: flex;
-      justify-content: center;
-    }
-    .flyer-link img {
-      width: 400px;
-      height: auto;
-    }
-
-    @media (max-width: 768px) {
-      .flyer-link {
-        flex: 1 1 100%;    
-        margin-bottom: 15px; 
-      }
-      .flyer-link img {
-        max-width: 60%;   
-        margin: 0 auto;
-      }
-    }
-
-    /* ---------------- SECTIONS ---------------- */
-    .section { padding: 15px; color: white; }
-    .section-dark { background-color: #1B1212; }
-    .section-black { background-color: black; }
-
-    /* ---------------- FLEX LAYOUT ---------------- */
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .flex-section {
-      flex: 1 1 50%;   
-      box-sizing: border-box;
-      padding: 20px;
-    }
-    
-    .flex-section2 {
-      flex: 1 1 50%;   
-      box-sizing: border-box;
-      padding: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .flex-section {
-        flex: 1 1 100%;  
-      }
-      
-      .flex-section2 {
-        flex: 1 1 100%;  
-      }
-      
-      .flex-section2:first-child {
-        order: 2;  
-      }
-
-      .flex-section2:last-child {
-        order: 1;  
-      }
-    }
-    
-    /* ---------------- SPONSOR SECTION ---------------- */
-    .sponsor-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px; 
-      flex-wrap: wrap;
-    }
-
-    .sponsor-left,
-    .sponsor-right {
-      flex: 0 0 20%; 
-      min-width: 120px; 
-    }
-
-    .sponsor-center {
-      flex: 1 1 55%;
-      text-align: center;
-      min-width: 200px;
-    }
-
-    .sponsor-left img,
-    .sponsor-right img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Mobile Layout */
-    @media (max-width: 768px) {
-      .sponsor-row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .sponsor-left,
-      .sponsor-right,
-      .sponsor-center {
-        flex: 1 1 100%; 
-      }
-
-      .sponsor-left img,
-      .sponsor-right img {
-        width: 100px;
-      }
-    }
-    
-    /* ---------------- SPONSOR ---------------- */    
-    .sponsor-table {
-      width: 100%;
-      table-layout: fixed;
-      border-collapse: collapse;
-    }
-
-    .sponsor-table td {
-      vertical-align: middle;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .sponsor-table img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      .sponsor-table {
-        display: flex;
-        flex-direction: column; 
-        align-items: center;    
-        justify-content: flex-start; 
-        text-align: center;
-      }
-
-      .sponsor-table tbody,
-      .sponsor-table tr {
-        display: contents; 
-      }
-
-      .sponsor-table td {
-        flex: 1;
-        padding: 5px;
-      }
-
-      .sponsor-table td:first-child,
-      .sponsor-table td:last-child {
-        flex: 0 0 20%; 
-      }
-
-      .sponsor-table td:nth-child(2) {
-        flex: 1; 
-        text-align: left;
-      }
-
-      .sponsor-table img {
-        max-width: 200px; 
-        height: auto;
-      }
-    }
-
-    /* ---------------- IMAGES ---------------- */
-    .img-full { width: 100%; height: auto; }
-    .img-rounded { border-radius: 8px; }
-    .img-center { display: block; margin: 0 auto; }
-
-    /* ---------------- BUTTONS ---------------- */
-    .hero-button {
-      color: white;
-      font-size: 1.2em;
-      padding: 15px 60px;
-      border: none;
-      display: block;
-      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-      margin: auto;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .hero-button-green {
-      background: #006845;
-      width: 400px;
-      clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 10% 100%);
-    }
-
-    .hero-button-white {
-      background: white;
-      color: #7B3F00;
-      width: 350px;
-      clip-path: polygon(5% 0%, 100% 0%, 100% 100%, 5% 100%);
-    }
-
-    .hero-button-red {
-      background: #CF0921;
-      width: 400px;
-      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 5% 100%);
-    }
-
-    @media (max-width: 768px) {
-      .hero-button { font-size: 0.8em; padding: 7px; width: 200px; }
-    }
-    
-    /* ---------------- CONTACT ---------------- */
-    #contact {
-      background-color: #CF0921;
-    }
-    .contact-container {
-      width: 80%;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #e2e8f0;
-      margin-bottom: 16px;
-    }
-
-    /* ---------------- FOOTER ---------------- */
-    footer {
-      background-color: black;
-      color: white;
-      text-align: center;
-      padding: 40px;
-    }
-
-    /* ---------------- SCROLL ANIMATIONS ---------------- */
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .scroll-fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="">
-        <img src="https://elginil.gov/ImageRepository/Document?documentId=85646" alt="Fiesta de Elgin Logo" class="navbar-logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="">
+          <img
+            src="https://elginil.gov/ImageRepository/Document?documentId=85646"
+            alt="Fiesta de Elgin Logo"
+            class="navbar-logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Hero Section -->
-  <section id="vimeohero">
-    <iframe src="https://player.vimeo.com/video/1113042426?background=1&autoplay=1&loop=1&muted=1" frameborder="0" allowfullscreen></iframe>
-    <div class="hero-content">
-      <h1 class="scroll-fade">COUNTDOWN TO LA FIESTA!</h1>
-      <div id="countdown" class="scroll-fade"></div>
-      <div class="hero-button hero-button-green scroll-fade">DOWNTOWN ELGIN, IL</div>
-      <div class="hero-button hero-button-white scroll-fade">SEPTEMBER 13, 2025</div>
-      <div class="hero-button hero-button-red scroll-fade">FREE EVENT!</div>
-    </div>
-  </section>
-  
-  <!-- Intro Section -->
-  <section class="section section-black">
-    <div class="intro-row scroll-fade">
-      <div class="intro-left">
-        <img src="https://elginil.gov/ImageRepository/Document?documentID=86145" class="img-full" alt="Left Image">
+    <!-- Hero Section -->
+    <section id="vimeohero">
+      <iframe
+        src="https://player.vimeo.com/video/1113042426?background=1&autoplay=1&loop=1&muted=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <div class="hero-content">
+        <h1 class="scroll-fade">COUNTDOWN TO LA FIESTA!</h1>
+        <div id="countdown" class="scroll-fade"></div>
+        <div class="hero-button hero-button-green scroll-fade">
+          DOWNTOWN ELGIN, IL
+        </div>
+        <div class="hero-button hero-button-white scroll-fade">
+          SEPTEMBER 13, 2025
+        </div>
+        <div class="hero-button hero-button-red scroll-fade">FREE EVENT!</div>
       </div>
-      <div class="intro-center">
-        <p>La Fiesta de Elgin is back for its third year! Join us for a vibrant celebration of Mexican Independence Day on Saturday, September 13, 2025, in the heart of Downtown Elgin.</p>
-        <p>Get ready for a day full of music, food, culture, and community pride! The festivities kick off Saturday morning with a lively morning parade. The excitement continues at Festival Park with an evening celebration you will not want to miss.</p>
-        <p>This beloved event is made possible by our amazing community partners:
-          <a href="https://centrodeinformacion.org/" target="_blank">Centro de Información</a>,
-          <a href="https://www.facebook.com/epicgrouphome" target="_blank">Epic Real Estate Group</a>,
-          <a href="https://www.elginstatebank.com/" target="_blank">Elgin State Bank</a>, and
-          <a href="https://friendsofmasons.org/" target="_blank">Friends of Masons</a>.
-        </p>
-        <p><strong>Mark your calendars and come celebrate with us!</strong></p>
-      </div>
-      <div class="intro-right">
-        <img src="https://elginil.gov/ImageRepository/Document?documentID=86144" class="img-full" alt="Right Image">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Flyer Section -->
-  <section class="section section-dark">
-    <div class="flex-container">
-    	<div class="flex-section">
-          <a href="https://elginil.gov/ImageRepository/Document?documentID=85973" target="_blank" class="flyer-link">
-            <img src="https://elginil.gov/ImageRepository/Document?documentID=85973" 
-                 class="img-full img-rounded flyer-img scroll-fade" alt="Artists"/>
+    <!-- Intro Section -->
+    <section class="section section-black">
+      <div class="intro-row scroll-fade">
+        <div class="intro-left">
+          <img
+            src="https://elginil.gov/ImageRepository/Document?documentID=86145"
+            class="img-full"
+            alt="Left Image"
+          />
+        </div>
+        <div class="intro-center">
+          <p>
+            La Fiesta de Elgin is back for its third year! Join us for a vibrant
+            celebration of Mexican Independence Day on Saturday, September 13,
+            2025, in the heart of Downtown Elgin.
+          </p>
+          <p>
+            Get ready for a day full of music, food, culture, and community
+            pride! The festivities kick off Saturday morning with a lively
+            morning parade. The excitement continues at Festival Park with an
+            evening celebration you will not want to miss.
+          </p>
+          <p>
+            This beloved event is made possible by our amazing community
+            partners:
+            <a href="https://centrodeinformacion.org/" target="_blank"
+              >Centro de Información</a
+            >,
+            <a href="https://www.facebook.com/epicgrouphome" target="_blank"
+              >Epic Real Estate Group</a
+            >,
+            <a href="https://www.elginstatebank.com/" target="_blank"
+              >Elgin State Bank</a
+            >, and
+            <a href="https://friendsofmasons.org/" target="_blank"
+              >Friends of Masons</a
+            >.
+          </p>
+          <p>
+            <strong>Mark your calendars and come celebrate with us!</strong>
+          </p>
+        </div>
+        <div class="intro-right">
+          <img
+            src="https://elginil.gov/ImageRepository/Document?documentID=86144"
+            class="img-full"
+            alt="Right Image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Flyer Section -->
+    <section class="section section-dark">
+      <div class="flex-container">
+        <div class="flex-section">
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentID=85973"
+            target="_blank"
+            class="flyer-link"
+          >
+            <img
+              src="https://elginil.gov/ImageRepository/Document?documentID=85973"
+              class="img-full img-rounded flyer-img scroll-fade"
+              alt="Artists"
+            />
           </a>
         </div>
         <div class="flex-section">
-          <a href="https://elginil.gov/ImageRepository/Document?documentId=85939" target="_blank" class="flyer-link">
-            <img src="https://elginil.gov/ImageRepository/Document?documentId=85939" 
-                 class="img-full img-rounded flyer-img scroll-fade" alt="Schedule"/>
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85939"
+            target="_blank"
+            class="flyer-link"
+          >
+            <img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85939"
+              class="img-full img-rounded flyer-img scroll-fade"
+              alt="Schedule"
+            />
           </a>
         </div>
-    </div>
-  </section>
-
-  <!-- Plan Your Day Section -->
-  <section class="section section-black">
-    <h1 class="scroll-fade">PLAN YOUR DAY</h1>
-    <div class="img-center scroll-fade">
-      <img src="https://elginil.gov/ImageRepository/Document?documentID=86157" style="margin-bottom: 20px;" class="img-full" alt="Papel Picado">
-    </div>
-
-    <div class="flex-container">
-      <div class="flex-section scroll-fade">
-        <p><strong>La Fiesta de Elgin Parade | Saturday, September 13 | 9:00am</strong></p>
-        <p><strong>📍Downtown Elgin</strong></p>
-        <p>La Fiesta de Elgin Parade car staging begins at 7 a.m. at 901 Center St
-          (old Sherman lot). Cars will step off at 9:00am at the intersection of Slade
-          and Douglas Ave and ends at Douglas Ave and Highland Ave, near City Hall.
-          Seating is available along Douglas Avenue... <strong>Vehicles or floats only! No walkers.</strong> 
-          For more information please reach out to the <a href="https://friendsofmasons.org/contact-us" target="_blank"><strong>Friends of Masons.</strong></a></p>
-        <p><strong>Parking:</strong> All parking in Downtown Elgin is free, however,
-          with street closures taking place for the parade, we advise that you arrive early.
-          Besides street parking, Downtown Elgin offers plenty of free parking in lots and decks
-          <a href="https://elginil.gov/parking" target="_blank">here</a>.
-        </p>
       </div>
-      <div class="flex-section scroll-fade" >
-        <a href="https://elginil.gov/ImageRepository/Document?documentId=85940" target="_blank">
-          <img src="https://elginil.gov/ImageRepository/Document?documentId=85940" class="img-full img-rounded img-centered" alt="Car Parade">
-        </a>
+    </section>
+
+    <!-- Plan Your Day Section -->
+    <section class="section section-black">
+      <h1 class="scroll-fade">PLAN YOUR DAY</h1>
+      <div class="img-center scroll-fade">
+        <img
+          src="https://elginil.gov/ImageRepository/Document?documentID=86157"
+          style="margin-bottom: 20px"
+          class="img-full"
+          alt="Papel Picado"
+        />
       </div>
-    </div>
-    
-    <div class="flex-container">
-      <div class="flex-section2 scroll-fade" >
-        <a href="https://elginil.gov/ImageRepository/Document?documentId=85951" target="_blank">
-          <img src="https://elginil.gov/ImageRepository/Document?documentId=85951" class="img-full img-rounded img-centered" alt="Mercado">
-        </a>
+
+      <div class="flex-container">
+        <div class="flex-section scroll-fade">
+          <p>
+            <strong
+              >La Fiesta de Elgin Parade | Saturday, September 13 |
+              9:00am</strong
+            >
+          </p>
+          <p><strong>📍Downtown Elgin</strong></p>
+          <p>
+            La Fiesta de Elgin Parade car staging begins at 7 a.m. at 901 Center
+            St (old Sherman lot). Cars will step off at 9:00am at the
+            intersection of Slade and Douglas Ave and ends at Douglas Ave and
+            Highland Ave, near City Hall. Seating is available along Douglas
+            Avenue... <strong>Vehicles or floats only! No walkers.</strong> For
+            more information please reach out to the
+            <a href="https://friendsofmasons.org/contact-us" target="_blank"
+              ><strong>Friends of Masons.</strong></a
+            >
+          </p>
+          <p>
+            <strong>Parking:</strong> All parking in Downtown Elgin is free,
+            however, with street closures taking place for the parade, we advise
+            that you arrive early. Besides street parking, Downtown Elgin offers
+            plenty of free parking in lots and decks
+            <a href="https://elginil.gov/parking" target="_blank">here</a>.
+          </p>
+        </div>
+        <div class="flex-section scroll-fade">
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85940"
+            target="_blank"
+          >
+            <img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85940"
+              class="img-full img-rounded img-centered"
+              alt="Car Parade"
+            />
+          </a>
+        </div>
       </div>
-      <div class="flex-section2 scroll-fade">
-        <p><strong>El Mercado | Saturday, September 13 | 10:00am - 6:00pm</strong></p>
 
-		<p><strong>📍 Riverside Drive</strong></p>
+      <div class="flex-container">
+        <div class="flex-section2 scroll-fade">
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85951"
+            target="_blank"
+          >
+            <img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85951"
+              class="img-full img-rounded img-centered"
+              alt="Mercado"
+            />
+          </a>
+        </div>
+        <div class="flex-section2 scroll-fade">
+          <p>
+            <strong
+              >El Mercado | Saturday, September 13 | 10:00am - 6:00pm</strong
+            >
+          </p>
 
-		<p>We are turning up the energy with a special La Fiesta de Elgin Mercado. Stroll through a vibrant market featuring Latino-owned businesses, live music, a car show and family-friendly activities for all ages. From delicious eats to one-of-kind retail finds, there is something for everyone.</p>
+          <p><strong>📍 Riverside Drive</strong></p>
 
-		<p>Want to be part of the fun as a food or retail vendor? Head over to our <a href="https://elginil.gov/2608/Vendors" target="_blank"><strong>Vendor Page</strong></a> to apply!</p>
+          <p>
+            We are turning up the energy with a special La Fiesta de Elgin
+            Mercado. Stroll through a vibrant market featuring Latino-owned
+            businesses, live music, a car show and family-friendly activities
+            for all ages. From delicious eats to one-of-kind retail finds, there
+            is something for everyone.
+          </p>
 
-		<p><em>A full list of entertainment and participating vendors will be shared soon!</em></p>
+          <p>
+            Want to be part of the fun as a food or retail vendor? Head over to
+            our
+            <a href="https://elginil.gov/2608/Vendors" target="_blank"
+              ><strong>Vendor Page</strong></a
+            >
+            to apply!
+          </p>
+
+          <p>
+            <em
+              >A full list of entertainment and participating vendors will be
+              shared soon!</em
+            >
+          </p>
+        </div>
       </div>
-    </div>
-    
-    <div class="flex-container">
-      <div class="flex-section scroll-fade">
-        <p><strong>La Fiesta de Elgin Celebration | Saturday, September 13 | 5:00pm- 10:00pm</strong></p>
 
-        <p><strong>📍Festival Park | 132 S. Grove Elgin, IL 60120</strong></p>
+      <div class="flex-container">
+        <div class="flex-section scroll-fade">
+          <p>
+            <strong
+              >La Fiesta de Elgin Celebration | Saturday, September 13 | 5:00pm-
+              10:00pm</strong
+            >
+          </p>
 
-        <p>Get ready for a vibrant night of culture, music art, and fun as Mexico comes to Festival Park! A stunning, large-scale Angel of Independence will welcome guests at the center sidewalk, setting the stage for an unforgettable evening. Additional vibrant art installations will make their return celebrating Mexican heritage. There will be plenty of fun and interaction for kids, including our <em>Illuminate Elgin</em> interactive light board and our pi&ntilde;ata smash! Savor authentic Mexican food, sip on ice-cold micheladas, or cool down with a refreshing paleta. Plenty of local and popular food vendors will be joining us in the celebration.</p>
+          <p><strong>📍Festival Park | 132 S. Grove Elgin, IL 60120</strong></p>
 
-        <p>Dance the night away with live performances by <a href="https://www.facebook.com/LosSebastianes/" target="_blank"><strong>Banda Los Sebastianes</strong></a>, <a href="https://www.facebook.com/estiloalnorte" target="_blank"><strong>Estilo Al Norte</strong></a>, La Sonora Dinamita, and <a href="https://www.facebook.com/djeddyp2" target="_blank"><strong>DJ Eddy P</strong></a> will be emceeing and spinning tunes between sets.</p>
+          <p>
+            Get ready for a vibrant night of culture, music art, and fun as
+            Mexico comes to Festival Park! A stunning, large-scale Angel of
+            Independence will welcome guests at the center sidewalk, setting the
+            stage for an unforgettable evening. Additional vibrant art
+            installations will make their return celebrating Mexican heritage.
+            There will be plenty of fun and interaction for kids, including our
+            <em>Illuminate Elgin</em> interactive light board and our
+            pi&ntilde;ata smash! Savor authentic Mexican food, sip on ice-cold
+            micheladas, or cool down with a refreshing paleta. Plenty of local
+            and popular food vendors will be joining us in the celebration.
+          </p>
 
+          <p>
+            Dance the night away with live performances by
+            <a href="https://www.facebook.com/LosSebastianes/" target="_blank"
+              ><strong>Banda Los Sebastianes</strong></a
+            >,
+            <a href="https://www.facebook.com/estiloalnorte" target="_blank"
+              ><strong>Estilo Al Norte</strong></a
+            >, La Sonora Dinamita, and
+            <a href="https://www.facebook.com/djeddyp2" target="_blank"
+              ><strong>DJ Eddy P</strong></a
+            >
+            will be emceeing and spinning tunes between sets.
+          </p>
+        </div>
+        <div class="flex-section scroll-fade">
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85943"
+            target="_blank"
+          >
+            <img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85943"
+              class="img-full img-rounded img-centered"
+              alt="Celebration"
+            />
+          </a>
+        </div>
       </div>
-      <div class="flex-section scroll-fade" >
-        <a href="https://elginil.gov/ImageRepository/Document?documentId=85943" target="_blank">
-          <img src="https://elginil.gov/ImageRepository/Document?documentId=85943" class="img-full img-rounded img-centered" alt="Celebration">
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- VIP SECTION -->
-  <section class="section section-dark">
-    <div class="flex-container">
-    	<div class="flex-section2 scroll-fade">
-          <a href="https://elginil.gov/ImageRepository/Document?documentId=85938" target="_blank">
-            <img src="https://elginil.gov/ImageRepository/Document?documentId=85938" class="img-full img-rounded img-centered" alt="VIP">
+    <!-- VIP SECTION -->
+    <section class="section section-dark">
+      <div class="flex-container">
+        <div class="flex-section2 scroll-fade">
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85938"
+            target="_blank"
+          >
+            <img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85938"
+              class="img-full img-rounded img-centered"
+              alt="VIP"
+            />
           </a>
         </div>
         <div class="flex-section2 scroll-fade">
           <h1>VIP LOUNGE AREA</h1>
 
-          <p>Upgrade your Fiesta de Elgin experience with exclusive access to our VIP Lounge Area, designed for comfort, convenience, and unbeatable views! <a href="https://buytickets.at/cityofelgindcase/1830507" target="_blank"><strong>Purchase your VIP ticket</strong></a> during our early bird special for $25 from August 25th to August 29th. After the early bird special they will increase to $40. Get them before they sellout! If tickets remain available, they will be sold on site. A ticket is required for each guest age 12 and up entering the VIP area. Children under 12 are free but must be accompanied by an adult with a VIP ticket. Maximum of 2 children&apos;s tickets per VIP ticket. Your VIP ticket includes the following:</p>
+          <p>
+            Upgrade your Fiesta de Elgin experience with exclusive access to our
+            VIP Lounge Area, designed for comfort, convenience, and unbeatable
+            views!
+            <a
+              href="https://buytickets.at/cityofelgindcase/1830507"
+              target="_blank"
+              ><strong>Purchase your VIP ticket</strong></a
+            >
+            during our early bird special for $25 from August 25th to August
+            29th. After the early bird special they will increase to $40. Get
+            them before they sellout! If tickets remain available, they will be
+            sold on site. A ticket is required for each guest age 12 and up
+            entering the VIP area. Children under 12 are free but must be
+            accompanied by an adult with a VIP ticket. Maximum of 2
+            children&apos;s tickets per VIP ticket. Your VIP ticket includes the
+            following:
+          </p>
 
           <ul>
-              <li>Reserved bar access, lawn seating and restrooms</li>
-              <li>Special michelada offerings provided by <strong><a href="https://pinchesmiches.com" target="_blank">Pinches Miches</a>&nbsp;</strong>only available at VIP
+            <li>Reserved bar access, lawn seating and restrooms</li>
+            <li>
+              Special michelada offerings provided by
+              <strong
+                ><a href="https://pinchesmiches.com" target="_blank"
+                  >Pinches Miches</a
+                >&nbsp;</strong
+              >only available at VIP
 
-                  <ul>
-                      <li>Cevicheladas: classic micheladas topped with mango ceviche</li>
-                      <li>Yummycheladas: classic michelada topped with gomitas enchilados</li>
-                  </ul>
-              </li>
-              <li>Elevated viewing deck with umbrellas and ambient lighting and prime views of the stage and fireworks</li>
-              <li>Chairs are NOT included- please bring your own</li>
+              <ul>
+                <li>
+                  Cevicheladas: classic micheladas topped with mango ceviche
+                </li>
+                <li>
+                  Yummycheladas: classic michelada topped with gomitas
+                  enchilados
+                </li>
+              </ul>
+            </li>
+            <li>
+              Elevated viewing deck with umbrellas and ambient lighting and
+              prime views of the stage and fireworks
+            </li>
+            <li>Chairs are NOT included- please bring your own</li>
           </ul>
         </div>
-    </div>
-  </section>
-  
-  <section class="section section-black">
+      </div>
+    </section>
+
+    <section class="section section-black">
       <table class="sponsor-table scroll-fade">
-          <tbody>
-              <tr>
-                  <td cals><img src="https://elginil.gov/ImageRepository/Document?documentId=85959" alt="LFDE Event Schedule 2025 (1)-02"></td>
-                  <td>
-                      <div>
-                          <h1><span style="color: rgb(234, 166, 69);">BECOME A SPONSOR</span></h1>
+        <tbody>
+          <tr>
+            <td cals>
+              <img
+                src="https://elginil.gov/ImageRepository/Document?documentId=85959"
+                alt="LFDE Event Schedule 2025 (1)-02"
+              />
+            </td>
+            <td>
+              <div>
+                <h1>
+                  <span style="color: rgb(234, 166, 69)">BECOME A SPONSOR</span>
+                </h1>
 
-                          <p>Want to be a part of the fun? There are plenty of exciting ways to get involved and sponsor the celebration at La Fiesta de Elgin!</p>
+                <p>
+                  Want to be a part of the fun? There are plenty of exciting
+                  ways to get involved and sponsor the celebration at La Fiesta
+                  de Elgin!
+                </p>
 
-                          <p><em><strong>Pi&ntilde;ata Sponsor&nbsp;</strong>-</em> Help us bring the smash hit to life! Learn how to sponsor a pi&ntilde;ata and add some extra joy (and candy!) to the event. Find out more&nbsp;<strong><a href="https://elginil.gov/DocumentCenter/View/85810" target="_blank">here</a></strong>.</p>
+                <p>
+                  <em><strong>Pi&ntilde;ata Sponsor&nbsp;</strong>-</em> Help us
+                  bring the smash hit to life! Learn how to sponsor a
+                  pi&ntilde;ata and add some extra joy (and candy!) to the
+                  event. Find out more&nbsp;<strong
+                    ><a
+                      href="https://elginil.gov/DocumentCenter/View/85810"
+                      target="_blank"
+                      >here</a
+                    ></strong
+                  >.
+                </p>
 
-                          <p><em><strong>T-Shirt Sponsor</strong> -</em> Be a part of the inaugural T-shirt giveaway with our Fiesta logo and support the growth of this celebration! Find out more&nbsp;<strong><a href="https://elginil.gov/DocumentCenter/View/85809" target="_blank">here</a></strong>.</p>
+                <p>
+                  <em><strong>T-Shirt Sponsor</strong> -</em> Be a part of the
+                  inaugural T-shirt giveaway with our Fiesta logo and support
+                  the growth of this celebration! Find out more&nbsp;<strong
+                    ><a
+                      href="https://elginil.gov/DocumentCenter/View/85809"
+                      target="_blank"
+                      >here</a
+                    ></strong
+                  >.
+                </p>
 
-                          <p>Looking for other sponsorship opportunities or custom ways to get involved? Visit our&nbsp;<a href="https://elginil.gov/1777/Sponsorship"><strong>Sponsorship Page</strong></a>&nbsp;or contact us at&nbsp;<a ref="mailto:specialevents@elginil.gov"><strong>specialevents@elginil.gov</strong></a>.</p>
-
-                      </div>
-                  </td>
-                  <td><img src="https://elginil.gov/ImageRepository/Document?documentId=85960" alt="LFDE Event Schedule 2025 (1)-01"></td>
-              </tr>
-          </tbody>
+                <p>
+                  Looking for other sponsorship opportunities or custom ways to
+                  get involved? Visit our&nbsp;<a
+                    href="https://elginil.gov/1777/Sponsorship"
+                    ><strong>Sponsorship Page</strong></a
+                  >&nbsp;or contact us at&nbsp;<a
+                    ref="mailto:specialevents@elginil.gov"
+                    ><strong>specialevents@elginil.gov</strong></a
+                  >.
+                </p>
+              </div>
+            </td>
+            <td>
+              <img
+                src="https://elginil.gov/ImageRepository/Document?documentId=85960"
+                alt="LFDE Event Schedule 2025 (1)-01"
+              />
+            </td>
+          </tr>
+        </tbody>
       </table>
-  </section>
-  
-  <div class="flex-container section-dark">
-  	<div class="flex-section">
-      <section class="section section-dark scroll-fade">
+    </section>
+
+    <div class="flex-container section-dark">
+      <div class="flex-section">
+        <section class="section section-dark scroll-fade">
           <h1>EL GRITO AND FIREWORKS</h1>
-          <p>El Grito- the traditional call for independence- will be a powerful moment of unity and pride as we honor the spirit of Mexican heritage. Then, we will light up the sky with a spectacular fireworks show to welcome the headliner who will close out the night!</p>
-          <a href="https://elginil.gov/ImageRepository/Document?documentId=85942" target="_blank"><img src="https://elginil.gov/ImageRepository/Document?documentId=85942" class="img-full img-rounded flyer-img scroll-fade" alt="El Grito"/></a>
-      </section>
-    </div>
-    
-    <div class="flex-section">
-      <section class="section section-dark scroll-fade">
+          <p>
+            El Grito- the traditional call for independence- will be a powerful
+            moment of unity and pride as we honor the spirit of Mexican
+            heritage. Then, we will light up the sky with a spectacular
+            fireworks show to welcome the headliner who will close out the
+            night!
+          </p>
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85942"
+            target="_blank"
+            ><img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85942"
+              class="img-full img-rounded flyer-img scroll-fade"
+              alt="El Grito"
+          /></a>
+        </section>
+      </div>
+
+      <div class="flex-section">
+        <section class="section section-dark scroll-fade">
           <h1>VENDORS</h1>
-          <p>Antigua Mexican Brunch &amp; Grill, Carmina&apos;s Mexican Restaurant, Cinco de Mayo Bakery, Citrus Sisters, Churros y Chocolate, Dolcezza Snack Bar, La Catrina, La Michoac&aacute;na, La Roca Elgin, Inches Tacos, Mario&apos;s Cart, Monchi&apos;s Tacos, Noty&apos;s Munchies, Olgas Aguas Frescas, Roasted Corn &amp; Co., Sammy&apos;s Mexican Grill, TacoGyro Inc., Taco n Madre, Tacos Marios, Tacos Tarazco, Tere Taqueria y Antojitos</p>
-          <a href="https://elginil.gov/ImageRepository/Document?documentId=85944" target="_blank"><img src="https://elginil.gov/ImageRepository/Document?documentId=85944" class="img-full img-rounded flyer-img scroll-fade" alt="Vendors"/></a>
-      </section>
+          <p>
+            Antigua Mexican Brunch &amp; Grill, Carmina&apos;s Mexican
+            Restaurant, Cinco de Mayo Bakery, Citrus Sisters, Churros y
+            Chocolate, Dolcezza Snack Bar, La Catrina, La Michoac&aacute;na, La
+            Roca Elgin, Inches Tacos, Mario&apos;s Cart, Monchi&apos;s Tacos,
+            Noty&apos;s Munchies, Olgas Aguas Frescas, Roasted Corn &amp; Co.,
+            Sammy&apos;s Mexican Grill, TacoGyro Inc., Taco n Madre, Tacos
+            Marios, Tacos Tarazco, Tere Taqueria y Antojitos
+          </p>
+          <a
+            href="https://elginil.gov/ImageRepository/Document?documentId=85944"
+            target="_blank"
+            ><img
+              src="https://elginil.gov/ImageRepository/Document?documentId=85944"
+              class="img-full img-rounded flyer-img scroll-fade"
+              alt="Vendors"
+          /></a>
+        </section>
+      </div>
     </div>
-  </div>
-  
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="contact-container scroll-fade">
-      <h3 class="contact-title">CONTACT US</h3>
-      <form class="contact-form" action="https://formsubmit.co/" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p style="margin-bottom: 0;">&copy; 2025 City of Elgin. All rights reserved.</p>
-  </footer>
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-container scroll-fade">
+        <h3 class="contact-title">CONTACT US</h3>
+        <form
+          class="contact-form"
+          action="https://formsubmit.co/"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-  <script>
-    // Scroll fade
-    document.addEventListener("DOMContentLoaded", function () {
-      const scrollElements = document.querySelectorAll(".scroll-fade");
-      function elementInView(el, offset = 0) {
-        const elementTop = el.getBoundingClientRect().top;
-        return elementTop <= (window.innerHeight || document.documentElement.clientHeight) - offset;
-      }
-      function elementOutOfView(el) {
-        const elementTop = el.getBoundingClientRect().top;
-        const elementBottom = el.getBoundingClientRect().bottom;
-        return elementBottom < 0 || elementTop > window.innerHeight;
-      }
-      function handleScrollAnimation() {
-        scrollElements.forEach((el) => {
-          if (elementInView(el, 100)) el.classList.add("show");
-          else if (elementOutOfView(el)) el.classList.remove("show");
-        });
-      }
-      window.addEventListener("scroll", handleScrollAnimation);
-      window.addEventListener("resize", handleScrollAnimation);
-      handleScrollAnimation();
-    });
+    <!-- Footer -->
+    <footer>
+      <p style="margin-bottom: 0">
+        &copy; 2025 City of Elgin. All rights reserved.
+      </p>
+    </footer>
 
-    // Countdown
-    const eventDate = new Date("Sep 13, 2026 9:00:00").getTime();
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "See You Next Year!";
-        return;
-      }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("countdown").innerHTML = `
-        <div class="countdown-container"><div>${days}</div><div style="font-size:.5em;">DAYS</div></div>
-        <div class="countdown-container"><div>${hours}</div><div style="font-size:.5em;">HOURS</div></div>
-        <div class="countdown-container"><div>${minutes}</div><div style="font-size:.5em;">MINUTES</div></div>
-        <div class="countdown-container"><div>${seconds}</div><div style="font-size:.5em;">SECONDS</div></div>
-      `;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-</body>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="assets/scripts/countdown.js"></script>
+    <script src="assets/scripts/scrollFade.js"></script>
+  </body>
 </html>
