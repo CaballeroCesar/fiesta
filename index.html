@@ -279,56 +279,105 @@
     }
     
     /* ---------------- SPONSOR SECTION ---------------- */
-    /* ---------------- SPONSOR SECTION ---------------- */
-.sponsor-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px; /* space between items */
-  flex-wrap: wrap; /* allows wrapping on small screens */
-}
+    .sponsor-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px; 
+      flex-wrap: wrap;
+    }
 
-.sponsor-left,
-.sponsor-right {
-  flex: 0 0 20%; /* left and right images take 20% of width */
-  min-width: 120px; /* ensures images don’t get too small */
-}
+    .sponsor-left,
+    .sponsor-right {
+      flex: 0 0 20%; 
+      min-width: 120px; 
+    }
 
-.sponsor-center {
-  flex: 1 1 55%; /* center text takes remaining space */
-  text-align: center;
-  min-width: 200px;
-}
+    .sponsor-center {
+      flex: 1 1 55%;
+      text-align: center;
+      min-width: 200px;
+    }
 
-.sponsor-left img,
-.sponsor-right img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .sponsor-left img,
+    .sponsor-right img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-/* Mobile Layout */
-@media (max-width: 768px) {
-  .sponsor-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    /* Mobile Layout */
+    @media (max-width: 768px) {
+      .sponsor-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-  .sponsor-left,
-  .sponsor-right,
-  .sponsor-center {
-    flex: 1 1 100%; /* all items full width */
-    margin: 10px 0;
-  }
+      .sponsor-left,
+      .sponsor-right,
+      .sponsor-center {
+        flex: 1 1 100%; 
+      }
 
-  .sponsor-left img,
-  .sponsor-right img {
-    max-width: 200px; /* images still visible and not too big */
-  }
-}
+      .sponsor-left img,
+      .sponsor-right img {
+        width: 100px;
+      }
+    }
+    
+    /* ---------------- SPONSOR ---------------- */    
+    .sponsor-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
 
+    .sponsor-table td {
+      vertical-align: middle;
+      text-align: center;
+      padding: 10px;
+    }
 
+    .sponsor-table img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ✅ Mobile layout: keep row, push images to far sides */
+    @media (max-width: 768px) {
+      .sponsor-table {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .sponsor-table tbody,
+      .sponsor-table tr {
+        display: contents; /* let flex handle layout */
+      }
+
+      .sponsor-table td {
+        flex: 1;
+        padding: 5px;
+      }
+
+      .sponsor-table td:first-child,
+      .sponsor-table td:last-child {
+        flex: 0 0 20%; /* shrink side images */
+      }
+
+      .sponsor-table td:nth-child(2) {
+        flex: 1; /* center text gets most space */
+        text-align: left;
+      }
+
+      .sponsor-table img {
+        max-width: 100px; /* smaller on mobile */
+        height: auto;
+      }
+    }
 
     /* ---------------- IMAGES ---------------- */
     .img-full { width: 100%; height: auto; }
@@ -565,25 +614,25 @@
   </section>
   
   <section class="section section-black">
-      <table>
+      <table class="sponsor-table">
           <tbody>
               <tr>
-                  <td style="width: 27.8978%;"><img src="https://elginil.gov/ImageRepository/Document?documentId=85959" alt="LFDE Event Schedule 2025 (1)-02" style="width: 352px;"></td>
-                  <td style="width: 47.0446%;">
+                  <td cals><img src="https://elginil.gov/ImageRepository/Document?documentId=85959" alt="LFDE Event Schedule 2025 (1)-02"></td>
+                  <td>
                       <div>
                           <h1><span style="color: rgb(234, 166, 69);">BECOME A SPONSOR</span></h1>
 
                           <p>Want to be a part of the fun? There are plenty of exciting ways to get involved and sponsor the celebration at La Fiesta de Elgin!</p>
 
-                          <p><em><strong>Pi&ntilde;ata Sponsor&nbsp;</strong>-</em> Help us bring the smash hit to life! Learn how to sponsor a pi&ntilde;ata and add some extra joy (and candy!) to the event. Find out more&nbsp;<strong><a href="/DocumentCenter/View/85810" target="_blank" rel="noopener" aria-describedby="audioeye_new_window_message">here</a></strong>.</p>
+                          <p><em><strong>Pi&ntilde;ata Sponsor&nbsp;</strong>-</em> Help us bring the smash hit to life! Learn how to sponsor a pi&ntilde;ata and add some extra joy (and candy!) to the event. Find out more&nbsp;<strong><a href="/DocumentCenter/View/85810" target="_blank">here</a></strong>.</p>
 
-                          <p><em><strong>T-Shirt Sponsor</strong> -</em> Be a part of the inaugural T-shirt giveaway with our Fiesta logo and support the growth of this celebration! Find out more&nbsp;<strong><a href="/DocumentCenter/View/85809" target="_blank" rel="noopener" aria-describedby="audioeye_new_window_message">here</a></strong>.</p>
+                          <p><em><strong>T-Shirt Sponsor</strong> -</em> Be a part of the inaugural T-shirt giveaway with our Fiesta logo and support the growth of this celebration! Find out more&nbsp;<strong><a href="/DocumentCenter/View/85809" target="_blank">here</a></strong>.</p>
 
                           <p>Looking for other sponsorship opportunities or custom ways to get involved? Visit our&nbsp;<a href="https://elginil.gov/1777/Sponsorship"><strong>Sponsorship Page</strong></a>&nbsp;or contact us at&nbsp;<a ref="mailto:specialevents@elginil.gov"><strong>specialevents@elginil.gov</strong></a>.</p>
 
                       </div>
                   </td>
-                  <td style="width: 25.0355%;"><img src="https://elginil.gov/ImageRepository/Document?documentId=85960" alt="LFDE Event Schedule 2025 (1)-01" style="width: 315px;"></td>
+                  <td><img src="https://elginil.gov/ImageRepository/Document?documentId=85960" alt="LFDE Event Schedule 2025 (1)-01"></td>
               </tr>
           </tbody>
       </table>
