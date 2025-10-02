@@ -345,17 +345,18 @@
       display: block;
     }
 
-    /* ✅ Mobile layout: keep row, push images to far sides */
     @media (max-width: 768px) {
       .sponsor-table {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column; 
+        align-items: center;    
+        justify-content: flex-start; 
+        text-align: center;
       }
 
       .sponsor-table tbody,
       .sponsor-table tr {
-        display: contents; /* let flex handle layout */
+        display: contents; 
       }
 
       .sponsor-table td {
@@ -365,16 +366,16 @@
 
       .sponsor-table td:first-child,
       .sponsor-table td:last-child {
-        flex: 0 0 20%; /* shrink side images */
+        flex: 0 0 20%; 
       }
 
       .sponsor-table td:nth-child(2) {
-        flex: 1; /* center text gets most space */
+        flex: 1; 
         text-align: left;
       }
 
       .sponsor-table img {
-        max-width: 100px; /* smaller on mobile */
+        max-width: 200px; 
         height: auto;
       }
     }
